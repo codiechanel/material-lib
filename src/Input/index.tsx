@@ -16,26 +16,24 @@ class Input extends React.Component<any, any> {
 
   public render() {
     const ThemeContext: any = common.getContext()
-
-    const {
-      className,
-
-      children,
-
-      ...otherProps
-    } = this.props
-
+    const { className, style, children, ...otherProps } = this.props
     /**
      * unelevated doesn't seem to change much
      */
-
-    const classesNew = classnames("mdc-text-field__input", className, {})
+    const classesNew = classnames(className, {})
 
     return (
       <ThemeContext.Consumer>
         {theme => {
+          let newStyle = Object.assign({ ...theme.input }, style)
           return (
-            <input style={theme.input} className={classesNew} {...otherProps} />
+            <input
+              type="text"
+              width="100%"
+              style={newStyle}
+              className={classesNew}
+              {...otherProps}
+            />
           )
         }}
       </ThemeContext.Consumer>

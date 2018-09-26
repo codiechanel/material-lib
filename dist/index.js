@@ -150,7 +150,11 @@ const theme = {
         padding: 10
     },
     input: {
-        color: "white"
+        color: "white",
+        border: "none",
+        margin: 10,
+        paddingRight: 10,
+        backgroundColor: "inherit"
     },
     left: {
         display: "flex",
@@ -169,8 +173,8 @@ const theme = {
         display: "block"
     },
     listItem: {
-        display: "flex",
-        flex: 1,
+        // display: "flex",
+        // flex: 1,
         padding: 10
     },
     item: {
@@ -180,7 +184,7 @@ const theme = {
     icon: {
         color: "white",
         fontSize: 27,
-        padding: 10,
+        // padding: 10,
         width: 40,
         height: 40
     }
@@ -376,7 +380,7 @@ class Icon extends React.Component {
     render() {
         const ThemeContext = common.getContext();
         const _a = this.props, { theme, active, className, name, children } = _a, otherProps = __rest(_a, ["theme", "active", "className", "name", "children"]);
-        const classesNew = classnames("material-icons mdc-icon-button__icon", className, {});
+        const classesNew = classnames("material-icons", className, {});
         // mdc-icon-button__icon--on
         // const styles = this.props.style
         let newName = name;
@@ -392,6 +396,10 @@ class Icon extends React.Component {
             //  <div style={theme.content} className={classesNew} {...otherProps}>
             //    {children}
             //  </div>
+            // <button className="mdc-icon-button material-icons">
+            //   {newName}
+            // </button>
+            // <span>
             React.createElement("i", Object.assign({ style: theme.icon, className: classesNew }, otherProps), newName));
         }));
     }
@@ -680,13 +688,14 @@ class Linking {
 class Input extends React.Component {
     render() {
         const ThemeContext = common.getContext();
-        const _a = this.props, { className, children } = _a, otherProps = __rest(_a, ["className", "children"]);
+        const _a = this.props, { className, style, children } = _a, otherProps = __rest(_a, ["className", "style", "children"]);
         /**
          * unelevated doesn't seem to change much
          */
-        const classesNew = classnames("mdc-text-field__input", className, {});
+        const classesNew = classnames(className, {});
         return (React.createElement(ThemeContext.Consumer, null, theme => {
-            return (React.createElement("input", Object.assign({ style: theme.input, className: classesNew }, otherProps)));
+            let newStyle = Object.assign(Object.assign({}, theme.input), style);
+            return (React.createElement("input", Object.assign({ type: "text", width: "100%", style: newStyle, className: classesNew }, otherProps)));
         }));
     }
 }

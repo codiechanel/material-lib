@@ -37,7 +37,11 @@ export const theme = {
     padding: 10
   },
   input: {
-    color: "white"
+    color: "white",
+    border: "none",
+    margin: 10,
+    paddingRight: 10,
+    backgroundColor: "inherit"
   },
   left: {
     display: "flex",
@@ -56,8 +60,8 @@ export const theme = {
     display: "block"
   },
   listItem: {
-    display: "flex",
-    flex: 1,
+    // display: "flex",
+    // flex: 1,
     padding: 10
   },
   item: {
@@ -68,7 +72,7 @@ export const theme = {
   icon: {
     color: "white",
     fontSize: 27,
-    padding: 10,
+    // padding: 10,
     width: 40,
     height: 40
   }

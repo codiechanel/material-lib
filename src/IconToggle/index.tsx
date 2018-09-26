@@ -1,8 +1,8 @@
-import * as React from 'react'
-import classnames from 'classnames'
-import * as PropTypes from 'prop-types'
-import injectSheet, { ThemeProvider } from 'react-jss'
-import './index.css'
+import * as React from "react"
+import classnames from "classnames"
+import * as PropTypes from "prop-types"
+
+import "./index.css"
 
 // export interface CardProps {
 //   className: String
@@ -11,15 +11,15 @@ import './index.css'
 
 class IconToggle extends React.Component<any, any> {
   state = {
-    on: false,
+    on: false
   }
   static propTypes = {
     children: PropTypes.node,
-    className: PropTypes.string,
+    className: PropTypes.string
   }
   static defaultProps = {
     children: null,
-    className: '',
+    className: ""
   }
 
   forTogle() {}
@@ -51,14 +51,14 @@ class IconToggle extends React.Component<any, any> {
       >
         <i
           className={`material-icons mdc-icon-button__icon ${
-            this.state.on ? '' : 'mdc-icon-button__icon--on'
+            this.state.on ? "" : "mdc-icon-button__icon--on"
           }`}
         >
           favorite
         </i>
         <i
           className={`material-icons mdc-icon-button__icon ${
-            this.state.on ? 'mdc-icon-button__icon--on' : ''
+            this.state.on ? "mdc-icon-button__icon--on" : ""
           }`}
         >
           favorite_border
@@ -86,8 +86,8 @@ const styles = theme => ({
   icon: {
     // backgroundColor: theme.colorPrimary,
     // backgroundColor: theme.container.backgroundColor,
-  },
+  }
 })
 
-export default injectSheet(styles)(IconToggle)
+export default IconToggle
 // export default Container

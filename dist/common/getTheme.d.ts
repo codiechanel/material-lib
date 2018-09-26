@@ -34,6 +34,10 @@ export declare const theme: {
     };
     input: {
         color: string;
+        border: string;
+        margin: number;
+        paddingRight: number;
+        backgroundColor: string;
     };
     left: {
         display: string;
@@ -51,8 +55,6 @@ export declare const theme: {
         display: string;
     };
     listItem: {
-        display: string;
-        flex: number;
         padding: number;
     };
     item: {
@@ -61,7 +63,6 @@ export declare const theme: {
     icon: {
         color: string;
         fontSize: number;
-        padding: number;
         width: number;
         height: number;
     };

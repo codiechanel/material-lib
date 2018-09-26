@@ -37,11 +37,7 @@ class Icon extends React.Component<any, any> {
       children,
       ...otherProps
     } = this.props
-    const classesNew = classnames(
-      "material-icons mdc-icon-button__icon",
-      className,
-      {}
-    )
+    const classesNew = classnames("material-icons", className, {})
     // mdc-icon-button__icon--on
     // const styles = this.props.style
     let newName = name
@@ -60,6 +56,10 @@ class Icon extends React.Component<any, any> {
             //  <div style={theme.content} className={classesNew} {...otherProps}>
             //    {children}
             //  </div>
+            // <button className="mdc-icon-button material-icons">
+            //   {newName}
+            // </button>
+            // <span>
             <i style={theme.icon} className={classesNew} {...otherProps}>
               {newName}
             </i>
