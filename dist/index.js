@@ -154,7 +154,10 @@ const theme = {
     },
     left: {
         display: "flex",
-        flex: 1,
+        /**
+         * this should not be flex 1
+         */
+        // flex: 1,
         padding: 10
     },
     cardItem: {

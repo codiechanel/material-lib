@@ -37,7 +37,9 @@ export declare const theme: {
     };
     left: {
         display: string;
-        flex: number;
+        /**
+         * this should not be flex 1
+         */
         padding: number;
     };
     cardItem: {
