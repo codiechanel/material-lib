@@ -26,6 +26,9 @@ export const theme = {
     backgroundColor: palette.backgroundPrimary
   },
   list: {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
     flex: 1,
     overflowY: "auto"
   },

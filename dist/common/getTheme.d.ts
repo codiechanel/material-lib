@@ -22,6 +22,9 @@ export declare const theme: {
         backgroundColor: string;
     };
     list: {
+        height: string;
+        display: string;
+        flexDirection: string;
         flex: number;
         overflowY: string;
     };
