@@ -37,6 +37,8 @@ export const theme = {
     margin: 10
   },
   body: {
+    display: "flex",
+    flex: 1,
     padding: 10
   },
   input: {
