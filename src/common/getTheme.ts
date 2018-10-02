@@ -39,6 +39,7 @@ export const theme = {
   body: {
     display: "flex",
     flex: 1,
+    flexDirection: "column",
     padding: 10
   },
   input: {

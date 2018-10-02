@@ -21,14 +21,28 @@ class Body extends React.Component<any, any> {
   public render() {
     const ThemeContext: any = common.getContext()
 
-    const { theme, className, children, ...otherProps } = this.props
+    const {
+      theme,
+      className,
+      children,
+      style,
+      innerRef,
+      ...otherProps
+    } = this.props
     const classesNew = classnames(className, {})
 
     return (
       <ThemeContext.Consumer>
         {theme => {
+          let bodyStyle = { ...theme.body }
+          let newStyle = Object.assign(bodyStyle, style)
           return (
-            <div style={theme.body} className={classesNew} {...otherProps}>
+            <div
+              ref={innerRef}
+              style={newStyle}
+              className={classesNew}
+              {...otherProps}
+            >
               {children}
             </div>
           )

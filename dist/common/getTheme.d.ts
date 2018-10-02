@@ -33,6 +33,9 @@ export declare const theme: {
         margin: number;
     };
     body: {
+        display: string;
+        flex: number;
+        flexDirection: string;
         padding: number;
     };
     input: {
