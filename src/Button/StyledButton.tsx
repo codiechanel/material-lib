@@ -1,11 +1,11 @@
-import * as React from 'react'
-import classnames from 'classnames'
-import * as PropTypes from 'prop-types'
+import * as React from "react"
+import classnames from "classnames"
+import * as PropTypes from "prop-types"
 // import './button.css'
-import '@material/react-button/dist/button.css'
-import * as CSS from 'csstype'
+import "@material/react-button/dist/button.css"
+import * as CSS from "csstype"
 // import './mdc.shape.css'
-import './mine.css'
+import "./mine.css"
 export interface CardProps {
   className: String
   raised: Boolean
@@ -15,23 +15,22 @@ export default class StyledButton extends React.Component<CardProps, any> {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    raised: PropTypes.bool,
+    raised: PropTypes.bool
   }
   static defaultProps = {
     children: null,
-    className: '',
-    raised: false,
+    className: "",
+    raised: false
   }
 
   public render() {
     const styles: CSS.Properties = {
-      backgroundColor: 'green',
+      backgroundColor: "green"
     }
     const { className, children, raised, ...otherProps } = this.props
-    const classes = classnames('mdc-button', className, {
-      'mdc-button--raised': raised,
+    const classes = classnames("mdc-button", className, {
+      "mdc-button--raised": raised
     })
-    console.log('classes', classes)
 
     return (
       <div className="mdc-shape-container my-shape-container">

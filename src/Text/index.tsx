@@ -20,7 +20,7 @@ class Text extends React.Component<any, any> {
 
   public render() {
     const ThemeContext: any = common.getContext()
-    const { theme, className, children, ...otherProps } = this.props
+    const { theme, className, style, children, ...otherProps } = this.props
     const classesNew = classnames(className, {})
 
     return (
@@ -30,7 +30,11 @@ class Text extends React.Component<any, any> {
       <ThemeContext.Consumer>
         {theme => {
           return (
-            <div style={theme.text} className={classesNew} {...otherProps}>
+            <div
+              style={{ ...theme.text, ...style }}
+              className={classesNew}
+              {...otherProps}
+            >
               {children}
             </div>
           )

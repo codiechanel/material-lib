@@ -18,8 +18,6 @@ class Common {
     this.context = ThemeContext
     return class ThemeProvider extends React.Component<any, any> {
       render() {
-        console.log(this.props)
-
         return (
           <ThemeContext.Provider value={this.props.theme}>
             {this.props.children}
@@ -31,23 +29,6 @@ class Common {
 }
 
 interface ProviderProps {}
-
-// const Provider  = (WrappedComponent) => {
-
-//   return class ThemeProvider extends React.Component<any, any> {
-//     render() {
-//       console.log(this.props)
-
-//       return (
-//         <WrappedComponent.Provider value={this.props.theme}>
-//           {this.props.children}
-//         </WrappedComponent.Provider>
-//       )
-//     }
-//   }
-// };
-
-// export default Provider;
 
 let common = new Common()
 export default common

@@ -31,7 +31,6 @@ class Body extends React.Component<any, any> {
       ...otherProps
     } = this.props
     const classesNew = classnames(className, {})
-    console.log("...otherProps", otherProps)
 
     return (
       <ThemeContext.Consumer>

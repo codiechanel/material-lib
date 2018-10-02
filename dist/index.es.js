@@ -295,25 +295,11 @@ class Common {
         this.context = ThemeContext;
         return class ThemeProvider extends Component {
             render() {
-                console.log(this.props);
                 return (createElement(ThemeContext.Provider, { value: this.props.theme }, this.props.children));
             }
         };
     }
 }
-// const Provider  = (WrappedComponent) => {
-//   return class ThemeProvider extends React.Component<any, any> {
-//     render() {
-//       console.log(this.props)
-//       return (
-//         <WrappedComponent.Provider value={this.props.theme}>
-//           {this.props.children}
-//         </WrappedComponent.Provider>
-//       )
-//     }
-//   }
-// };
-// export default Provider;
 let common = new Common();
 //# sourceMappingURL=index.js.map
 
@@ -486,14 +472,14 @@ ListItem.defaultProps = {
 class Text extends Component {
     render() {
         const ThemeContext = common.getContext();
-        const _a = this.props, { theme, className, children } = _a, otherProps = __rest(_a, ["theme", "className", "children"]);
+        const _a = this.props, { theme, className, style, children } = _a, otherProps = __rest(_a, ["theme", "className", "style", "children"]);
         const classesNew = classnames(className, {});
         return (
         // <div className={classesNew} {...otherProps}>
         //   {children}
         // </div>
         createElement(ThemeContext.Consumer, null, theme => {
-            return (createElement("div", Object.assign({ style: theme.text, className: classesNew }, otherProps), children));
+            return (createElement("div", Object.assign({ style: Object.assign({}, theme.text, style), className: classesNew }, otherProps), children));
         }));
     }
 }
@@ -505,7 +491,6 @@ Text.defaultProps = {
     children: null,
     className: ""
 };
-//# sourceMappingURL=index.js.map
 
 class Left extends Component {
     render() {
@@ -536,7 +521,6 @@ class Body extends Component {
         const ThemeContext = common.getContext();
         const _a = this.props, { theme, className, children, style, innerRef } = _a, otherProps = __rest(_a, ["theme", "className", "children", "style", "innerRef"]);
         const classesNew = classnames(className, {});
-        console.log("...otherProps", otherProps);
         return (createElement(ThemeContext.Consumer, null, theme => {
             return (createElement("div", Object.assign({ ref: innerRef, style: Object.assign({}, theme.body, style), className: classesNew }, otherProps), children));
         }));
@@ -551,6 +535,7 @@ Body.defaultProps = {
     className: ""
 };
 // export default Container
+//# sourceMappingURL=index.js.map
 
 class Button extends Component {
     constructor() {
