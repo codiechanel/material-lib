@@ -26,20 +26,20 @@ class Body extends React.Component<any, any> {
       className,
       children,
       style,
+
       innerRef,
       ...otherProps
     } = this.props
     const classesNew = classnames(className, {})
+    console.log("...otherProps", otherProps)
 
     return (
       <ThemeContext.Consumer>
         {theme => {
-          let bodyStyle = { ...theme.body }
-          let newStyle = Object.assign(bodyStyle, style)
           return (
             <div
               ref={innerRef}
-              style={newStyle}
+              style={{ ...theme.body, ...style }}
               className={classesNew}
               {...otherProps}
             >

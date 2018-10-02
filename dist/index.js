@@ -542,10 +542,9 @@ class Body extends React.Component {
         const ThemeContext = common.getContext();
         const _a = this.props, { theme, className, children, style, innerRef } = _a, otherProps = __rest(_a, ["theme", "className", "children", "style", "innerRef"]);
         const classesNew = classnames(className, {});
+        console.log("...otherProps", otherProps);
         return (React.createElement(ThemeContext.Consumer, null, theme => {
-            let bodyStyle = Object.assign({}, theme.body);
-            let newStyle = Object.assign(bodyStyle, style);
-            return (React.createElement("div", Object.assign({ ref: innerRef, style: newStyle, className: classesNew }, otherProps), children));
+            return (React.createElement("div", Object.assign({ ref: innerRef, style: Object.assign({}, theme.body, style), className: classesNew }, otherProps), children));
         }));
     }
 }
