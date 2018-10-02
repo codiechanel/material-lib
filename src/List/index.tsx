@@ -20,14 +20,18 @@ export default class List extends React.Component<any, any> {
 
   public render() {
     const ThemeContext: any = common.getContext()
-    const { className, children, ...otherProps } = this.props
+    const { className, style, children, ...otherProps } = this.props
     const classes = classnames(className, {})
 
     return (
       <ThemeContext.Consumer>
         {theme => {
           return (
-            <div style={theme.list} className={classes} {...otherProps}>
+            <div
+              style={{ ...theme.list, ...style }}
+              className={classes}
+              {...otherProps}
+            >
               {children}
             </div>
           )

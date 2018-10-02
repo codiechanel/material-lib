@@ -1,7 +1,7 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import '@material/react-button/dist/button.css';
-import './mine.css';
+import * as React from "react";
+import * as PropTypes from "prop-types";
+import "@material/react-button/dist/button.css";
+import "./mine.css";
 export interface CardProps {
     className: String;
     raised: Boolean;
