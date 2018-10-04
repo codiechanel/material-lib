@@ -23,7 +23,13 @@ export const theme = {
     backgroundColor: palette.brandDark
   },
   content: {
-    backgroundColor: palette.backgroundPrimary
+    backgroundColor: palette.backgroundPrimary,
+    // height: "100%",
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+    overflowY: "auto",
+    padding: 10
   },
   list: {
     height: "100%",
@@ -78,8 +84,9 @@ export const theme = {
   icon: {
     color: "white",
     fontSize: 27,
-    // padding: 10,
-    width: 40,
-    height: 40
+    margin: 5
+
+    // width: 40,
+    // height: 40
   }
 }

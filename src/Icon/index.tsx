@@ -34,6 +34,7 @@ class Icon extends React.Component<any, any> {
       active,
       className,
       name,
+      style,
       children,
       ...otherProps
     } = this.props
@@ -60,7 +61,7 @@ class Icon extends React.Component<any, any> {
             //   {newName}
             // </button>
             // <span>
-            <i style={theme.icon} className={classesNew} {...otherProps}>
+            <i style={{...theme.icon,...style}} className={classesNew} {...otherProps}>
               {newName}
             </i>
           )

@@ -20,7 +20,7 @@ export default class List extends React.Component<any, any> {
 
   public render() {
     const ThemeContext: any = common.getContext()
-    const { className, style, children, ...otherProps } = this.props
+    const { className, innerRef, style, children, ...otherProps } = this.props
     const classes = classnames(className, {})
 
     return (
@@ -28,6 +28,7 @@ export default class List extends React.Component<any, any> {
         {theme => {
           return (
             <div
+              ref={innerRef}
               style={{ ...theme.list, ...style }}
               className={classes}
               {...otherProps}

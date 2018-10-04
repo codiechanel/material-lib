@@ -29,7 +29,6 @@ class Input extends React.Component<any, any> {
           return (
             <input
               type="text"
-              width="100%"
               style={newStyle}
               className={classesNew}
               {...otherProps}

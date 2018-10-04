@@ -20,6 +20,11 @@ export declare const theme: {
     };
     content: {
         backgroundColor: string;
+        display: string;
+        flexDirection: string;
+        flex: number;
+        overflowY: string;
+        padding: number;
     };
     list: {
         height: string;
@@ -69,7 +74,6 @@ export declare const theme: {
     icon: {
         color: string;
         fontSize: number;
-        width: number;
-        height: number;
+        margin: number;
     };
 };

@@ -13,5 +13,6 @@ import Thumbnail from "./Thumbnail";
 import Linking from "./Linking";
 import Input from "./Input";
 import Item from "./Item";
+import Badge from "./Badge";
 import common from "./common";
-export { Item, Input, common, Linking, Thumbnail, Card, CardItem, Container, Content, Icon, List, ListItem, Text, Left, Body, Button };
+export { Badge, Item, Input, common, Linking, Thumbnail, Card, CardItem, Container, Content, Icon, List, ListItem, Text, Left, Body, Button };

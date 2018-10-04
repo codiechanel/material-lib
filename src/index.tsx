@@ -13,9 +13,11 @@ import Thumbnail from "./Thumbnail"
 import Linking from "./Linking"
 import Input from "./Input"
 import Item from "./Item"
+import Badge from "./Badge"
 import common from "./common"
 
 export {
+  Badge,
   Item,
   Input,
   common,

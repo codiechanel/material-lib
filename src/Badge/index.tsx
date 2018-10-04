@@ -2,50 +2,61 @@ import * as React from "react"
 import classnames from "classnames"
 import * as PropTypes from "prop-types"
 import common from "../common"
+
 // export interface CardProps {
 //   className: String
 //   outlined: Boolean
 // }
 
-class ListItem extends React.Component<any, any> {
+class Badge extends React.Component<any, any> {
   static propTypes = {
     children: PropTypes.node,
-    className: PropTypes.string,
-    onPress: PropTypes.func
+    className: PropTypes.string
   }
   static defaultProps = {
     children: null,
     className: ""
   }
 
-  onPress = () => {
-    if (this.props.onPress) {
-      this.props.onPress()
-    }
-  }
-
   public render() {
     const ThemeContext: any = common.getContext()
-    const { onPress, className,style, children, ...otherProps } = this.props
-    const classesNew = classnames(className, {})
+
+    const {
+      theme,
+      className,
+      children,
+      style,
+
+      innerRef,
+      ...otherProps
+    } = this.props
+    const classesNew = classnames(
+      "badge badge-pill badge-primary",
+      className,
+      {}
+    )
 
     return (
       <ThemeContext.Consumer>
         {theme => {
           return (
-            <div
-              style={{...theme.listItem, ...style}}
-              onClick={this.onPress}
+            <span
+              ref={innerRef}
+              style={{ ...theme.badge, ...style }}
               className={classesNew}
               {...otherProps}
             >
               {children}
-            </div>
+            </span>
           )
         }}
       </ThemeContext.Consumer>
     )
   }
 }
+{
+  /* <span className="badge badge-pill badge-primary">P</span> */
+}
 
-export default ListItem
+export default Badge
+// export default Container

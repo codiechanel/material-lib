@@ -16,14 +16,18 @@ class Left extends React.Component<any, any> {
 
   public render() {
     const ThemeContext: any = common.getContext()
-    const { className, children, ...otherProps } = this.props
+    const { className, style, children, ...otherProps } = this.props
     const classesNew = classnames(className, {})
 
     return (
       <ThemeContext.Consumer>
         {theme => {
           return (
-            <div style={theme.left} className={classesNew} {...otherProps}>
+            <div
+              style={{ ...theme.left, ...style }}
+              className={classesNew}
+              {...otherProps}
+            >
               {children}
             </div>
           )

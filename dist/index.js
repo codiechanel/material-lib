@@ -136,7 +136,13 @@ const theme = {
         backgroundColor: palette.brandDark
     },
     content: {
-        backgroundColor: palette.backgroundPrimary
+        backgroundColor: palette.backgroundPrimary,
+        // height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        flex: 1,
+        overflowY: "auto",
+        padding: 10
     },
     list: {
         height: "100%",
@@ -190,9 +196,9 @@ const theme = {
     icon: {
         color: "white",
         fontSize: 27,
-        // padding: 10,
-        width: 40,
-        height: 40
+        margin: 5
+        // width: 40,
+        // height: 40
     }
 };
 
@@ -371,7 +377,7 @@ class Icon extends React.Component {
     forTogle() { }
     render() {
         const ThemeContext = common.getContext();
-        const _a = this.props, { theme, active, className, name, children } = _a, otherProps = __rest(_a, ["theme", "active", "className", "name", "children"]);
+        const _a = this.props, { theme, active, className, name, style, children } = _a, otherProps = __rest(_a, ["theme", "active", "className", "name", "style", "children"]);
         const classesNew = classnames("material-icons", className, {});
         // mdc-icon-button__icon--on
         // const styles = this.props.style
@@ -392,7 +398,7 @@ class Icon extends React.Component {
             //   {newName}
             // </button>
             // <span>
-            React.createElement("i", Object.assign({ style: theme.icon, className: classesNew }, otherProps), newName));
+            React.createElement("i", Object.assign({ style: Object.assign({}, theme.icon, style), className: classesNew }, otherProps), newName));
         }));
     }
 }
@@ -416,10 +422,10 @@ Icon.defaultProps = {
 class List extends React.Component {
     render() {
         const ThemeContext = common.getContext();
-        const _a = this.props, { className, style, children } = _a, otherProps = __rest(_a, ["className", "style", "children"]);
+        const _a = this.props, { className, innerRef, style, children } = _a, otherProps = __rest(_a, ["className", "innerRef", "style", "children"]);
         const classes = classnames(className, {});
         return (React.createElement(ThemeContext.Consumer, null, theme => {
-            return (React.createElement("div", Object.assign({ style: Object.assign({}, theme.list, style), className: classes }, otherProps), children));
+            return (React.createElement("div", Object.assign({ ref: innerRef, style: Object.assign({}, theme.list, style), className: classes }, otherProps), children));
         }));
     }
 }
@@ -447,10 +453,10 @@ class ListItem extends React.Component {
     }
     render() {
         const ThemeContext = common.getContext();
-        const _a = this.props, { onPress, className, children } = _a, otherProps = __rest(_a, ["onPress", "className", "children"]);
+        const _a = this.props, { onPress, className, style, children } = _a, otherProps = __rest(_a, ["onPress", "className", "style", "children"]);
         const classesNew = classnames(className, {});
         return (React.createElement(ThemeContext.Consumer, null, theme => {
-            return (React.createElement("div", Object.assign({ style: theme.listItem, onClick: this.onPress, className: classesNew }, otherProps), children));
+            return (React.createElement("div", Object.assign({ style: Object.assign({}, theme.listItem, style), onClick: this.onPress, className: classesNew }, otherProps), children));
         }));
     }
 }
@@ -494,10 +500,10 @@ Text.defaultProps = {
 class Left extends React.Component {
     render() {
         const ThemeContext = common.getContext();
-        const _a = this.props, { className, children } = _a, otherProps = __rest(_a, ["className", "children"]);
+        const _a = this.props, { className, style, children } = _a, otherProps = __rest(_a, ["className", "style", "children"]);
         const classesNew = classnames(className, {});
         return (React.createElement(ThemeContext.Consumer, null, theme => {
-            return (React.createElement("div", Object.assign({ style: theme.left, className: classesNew }, otherProps), children));
+            return (React.createElement("div", Object.assign({ style: Object.assign({}, theme.left, style), className: classesNew }, otherProps), children));
         }));
     }
 }
@@ -687,7 +693,7 @@ class Input extends React.Component {
         const classesNew = classnames(className, {});
         return (React.createElement(ThemeContext.Consumer, null, theme => {
             let newStyle = Object.assign(Object.assign({}, theme.input), style);
-            return (React.createElement("input", Object.assign({ type: "text", width: "100%", style: newStyle, className: classesNew }, otherProps)));
+            return (React.createElement("input", Object.assign({ type: "text", style: newStyle, className: classesNew }, otherProps)));
         }));
     }
 }
@@ -719,6 +725,31 @@ Item.defaultProps = {
     className: ""
 };
 
+// export interface CardProps {
+//   className: String
+//   outlined: Boolean
+// }
+class Badge extends React.Component {
+    render() {
+        const ThemeContext = common.getContext();
+        const _a = this.props, { theme, className, children, style, innerRef } = _a, otherProps = __rest(_a, ["theme", "className", "children", "style", "innerRef"]);
+        const classesNew = classnames("badge badge-pill badge-primary", className, {});
+        return (React.createElement(ThemeContext.Consumer, null, theme => {
+            return (React.createElement("span", Object.assign({ ref: innerRef, style: Object.assign({}, theme.badge, style), className: classesNew }, otherProps), children));
+        }));
+    }
+}
+Badge.propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string
+};
+Badge.defaultProps = {
+    children: null,
+    className: ""
+};
+// export default Container
+
+exports.Badge = Badge;
 exports.Item = Item;
 exports.Input = Input;
 exports.common = common;
