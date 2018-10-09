@@ -14,9 +14,11 @@ import Linking from "./Linking"
 import Input from "./Input"
 import Item from "./Item"
 import Badge from "./Badge"
+import IconButton from "./IconButton"
 import common from "./common"
 
 export {
+  IconButton,
   Badge,
   Item,
   Input,

@@ -749,6 +749,43 @@ Badge.defaultProps = {
 };
 // export default Container
 
+// export interface CardProps {
+//   className: String
+//   outlined: Boolean
+// }
+class IconButton extends React.Component {
+    constructor() {
+        super(...arguments);
+        this.onPress = () => {
+            if (this.props.onPress) {
+                this.props.onPress();
+            }
+        };
+    }
+    render() {
+        const ThemeContext = common.getContext();
+        const _a = this.props, { theme, className, children, onPress, style, innerRef } = _a, otherProps = __rest(_a, ["theme", "className", "children", "onPress", "style", "innerRef"]);
+        const classesNew = classnames("btn btn-primary px-3", className, {});
+        return (
+        // material-icons
+        React.createElement(ThemeContext.Consumer, null, theme => {
+            return (React.createElement("button", Object.assign({ onClick: this.onPress, className: classesNew, style: Object.assign({}, theme.iconButton, style) }, otherProps, { type: "button" }),
+                React.createElement("i", { className: "material-icons" }, children)));
+        }));
+    }
+}
+IconButton.propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    onPress: PropTypes.func
+};
+IconButton.defaultProps = {
+    children: null,
+    className: ""
+};
+// export default Container
+
+exports.IconButton = IconButton;
 exports.Badge = Badge;
 exports.Item = Item;
 exports.Input = Input;

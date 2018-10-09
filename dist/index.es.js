@@ -743,5 +743,41 @@ Badge.defaultProps = {
 };
 // export default Container
 
-export { Badge, Item, Input, common, Linking, Thumbnail, Card, CardItem, Container, Content, Icon, List, ListItem, Text, Left, Body, Button };
+// export interface CardProps {
+//   className: String
+//   outlined: Boolean
+// }
+class IconButton extends Component {
+    constructor() {
+        super(...arguments);
+        this.onPress = () => {
+            if (this.props.onPress) {
+                this.props.onPress();
+            }
+        };
+    }
+    render() {
+        const ThemeContext = common.getContext();
+        const _a = this.props, { theme, className, children, onPress, style, innerRef } = _a, otherProps = __rest(_a, ["theme", "className", "children", "onPress", "style", "innerRef"]);
+        const classesNew = classnames("btn btn-primary px-3", className, {});
+        return (
+        // material-icons
+        createElement(ThemeContext.Consumer, null, theme => {
+            return (createElement("button", Object.assign({ onClick: this.onPress, className: classesNew, style: Object.assign({}, theme.iconButton, style) }, otherProps, { type: "button" }),
+                createElement("i", { className: "material-icons" }, children)));
+        }));
+    }
+}
+IconButton.propTypes = {
+    children: node,
+    className: string,
+    onPress: func
+};
+IconButton.defaultProps = {
+    children: null,
+    className: ""
+};
+// export default Container
+
+export { IconButton, Badge, Item, Input, common, Linking, Thumbnail, Card, CardItem, Container, Content, Icon, List, ListItem, Text, Left, Body, Button };
 //# sourceMappingURL=index.es.js.map
